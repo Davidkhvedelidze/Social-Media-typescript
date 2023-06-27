@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  @apply text-red-600 font-body flex justify-center align-baseline items-center;
+}
+.badge {
+  @apply text-red-600 sm:text-green-200 md:bg-red-400 lg:bg-yellow-300 font-body flex justify-center items-center h-40 w-40 bg-slate-400 hover:text-green-600;
+}
+.grid {
+  @apply grid-cols-2 mt-3 gap-5;
+}
+.btn {
+  @apply rounded-full py-2 px-4 uppercase  font-bold cursor-pointer  text-red-500 md:border-red-500 md:border-2 m-5 hover:bg-red-400 hover:text-white  hover:shadow-xl transition ease-out duration-500 transform hover:scale-105 hover:bg-opacity-50;
+}
