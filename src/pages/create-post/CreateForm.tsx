@@ -38,7 +38,7 @@ function CreateForm() {
     <form onSubmit={handleSubmit(onCreatePost)}>
       <input placeholder="Title..." {...register("title")} />
       <p>{errors.title?.message}</p>
-      <input placeholder="description ..." {...register("description")} />
+      <input placeholder="Description ..." {...register("description")} />
       <p>{errors.description?.message}</p>
       <input type="submit" />
     </form>

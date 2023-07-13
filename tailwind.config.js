@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -8,6 +8,12 @@ export default {
         secondary: {
           100: "#E2E2D5",
           200: "#888883",
+        },
+        height: {
+          100: "100px",
+        },
+        colors: {
+          "custom-color": "#CFCFCF",
         },
       },
       fontFamily: {
