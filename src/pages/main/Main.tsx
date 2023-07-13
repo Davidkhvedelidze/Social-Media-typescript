@@ -4,8 +4,8 @@ import { useState, useContext } from "react";
 import { Post } from "./Post";
 import Modal from "../../components/Modal";
 import TasksBar from "../../components/TasksBar";
-import { auth } from "../../config/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { auth } from "../../config/firebase";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { AppContext } from "../../App";
 import ProgressBar from "@ramonak/react-progress-bar";
 export interface Post {
@@ -26,7 +26,7 @@ function Main() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
 
   const { users, setUsers } = useContext(AppContext);
 
@@ -66,14 +66,13 @@ function Main() {
         ))}
       </div> */}
       <div className="flex flex-col">
-        {user && (
-          <div
-            className=" cursor-pointer flex py-4 px-2 justify-center items-center gap-3 rounded-md border border-blue-500 bg-blue-900 shadow-xs w-[150px] font-bold text-white ml-5"
-            onClick={() => setModalVisible(!modalVisible)}
-          >
-            + Add New Task
-          </div>
-        )}
+        <div
+          className=" cursor-pointer flex py-4 px-2 justify-center items-center gap-3 rounded-md border border-blue-500 bg-blue-900 shadow-xs w-[150px] font-bold text-white ml-5"
+          onClick={() => setModalVisible(!modalVisible)}
+        >
+          + Add New Task
+        </div>
+
         <div
           className=" h-[50px] 
           w-[1064px] p-[16px] flex justify-evenly items-center 

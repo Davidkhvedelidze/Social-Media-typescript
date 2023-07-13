@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 // import { signOut } from "firebase/auth";
@@ -31,7 +31,7 @@ function Navbar() {
   return (
     <div className="flex justify-center">
       <div className="navbarMain">
-        {!user ? (
+        {/* {!user ? (
           <>
             <div className="flex items-center gap-5 justify-between w-[100%] ">
               <div>
@@ -42,23 +42,21 @@ function Navbar() {
               </div>
             </div>
           </>
-        ) : (
-          <>
-            <div className="flex items-center gap-5">
-              <img src={hello} />
-              <h1>{user?.displayName}</h1>
-            </div>
-            <h1 className="text-red-600 ">
-              You Have {undoneTasks.length ? undoneTasks.length : "0"} Task to
-              do
+        ) : ( */}
+        <>
+          <div className="flex items-center gap-5">
+            <img src={hello} />
+            <h1>{user?.displayName}</h1>
+          </div>
+          <h1 className="text-red-600 ">
+            You Have {undoneTasks.length ? undoneTasks.length : "0"} Task to do
+          </h1>
+          {!(doneTasks.length === 0) && (
+            <h1 className="text-green-600 ">
+              You Have {doneTasks.length ? doneTasks.length : "0"} Task Done
             </h1>
-            {!(doneTasks.length === 0) && (
-              <h1 className="text-green-600 ">
-                You Have {doneTasks.length ? doneTasks.length : "0"} Task Done
-              </h1>
-            )}
-          </>
-        )}
+          )}
+        </>
 
         <div className="flex items-center justify-center">
           {user && (
