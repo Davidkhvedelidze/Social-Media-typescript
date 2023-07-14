@@ -26,26 +26,24 @@ function App() {
   }, [users]);
 
   return (
-    <div>
-      <AppContext.Provider value={{ users, setUsers }}>
-        <Router>
-          <div className="flex bg-[#e9ecef]">
-            <div>
-              <LeftNavbar />
-            </div>
-            <div>
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="login" element={<Login />} />
-                <Route path="/" element={<Main />} />
-                <Route path="/createpost" element={<CreatePost />} />
-              </Routes>
-            </div>
+    <AppContext.Provider value={{ users, setUsers }}>
+      <Router>
+        <div className="flex bg-[#e9ecef]  h-[801px] ">
+          <div>
+            <LeftNavbar />
           </div>
-        </Router>
-      </AppContext.Provider>
-    </div>
+          <div>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="login" element={<Login />} />
+              <Route path="/" element={<Main />} />
+              <Route path="/createpost" element={<CreatePost />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </AppContext.Provider>
   );
 }
 

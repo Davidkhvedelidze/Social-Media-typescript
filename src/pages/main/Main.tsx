@@ -8,6 +8,9 @@ import TasksBar from "../../components/TasksBar";
 // import { useAuthState } from "react-firebase-hooks/auth";
 import { AppContext } from "../../App";
 import ProgressBar from "@ramonak/react-progress-bar";
+import PlusIcon from "../../img/plus.png";
+import MinusIcon from "../../img/minus.png";
+
 export interface Post {
   id: string;
   userId: string;
@@ -26,6 +29,7 @@ function Main() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
+  const [tasksVisible, setTasksVisible] = useState(false);
   // const [user] = useAuthState(auth);
 
   const { users, setUsers } = useContext(AppContext);
@@ -75,30 +79,62 @@ function Main() {
 
         <div
           className=" h-[50px] 
-          w-[1064px] p-[16px] flex justify-evenly items-center 
-        rounded-t-lg border border-gray-300 bg-gray-50 m-5 mb-0  text-[#8a92a6] text-sm font-normal font-circular tracking-normal leading-175"
+          w-[1064px]
+           p-[16px] flex  items-center justify-start
+        rounded-t-lg border border-gray-300 bg-gray-50 m-5 mb-0  text-[#8a92a6] text-sm  font-circular tracking-normal leading-175 "
         >
-          <p>Author</p>
-          <p>Tasks To do </p>
-          <p>Start Time</p>
-        </div>
-        <div className="ml-[20px]">
-          {users &&
-            users?.map((user: User, index: number) => {
-              return (
-                <TasksBar
-                  title={user.firstName}
-                  description={user.lastName}
-                  time={user.startTime}
-                  key={index}
-                  onDelete={() => handleDeleteUser(index)}
-                  onDone={() => handleDone(index)}
-                  done={user.done}
-                  unDone={() => handleUnDone(index)}
+          <div
+            className="flex
+          items-center"
+          >
+            <div className="bg-white w-5 h-5 flex items-center justify-center border">
+              {!tasksVisible ? (
+                <img
+                  src={PlusIcon}
+                  width={20}
+                  height={20}
+                  onClick={() => setTasksVisible(!tasksVisible)}
                 />
-              );
-            })}
+              ) : (
+                <img
+                  src={MinusIcon}
+                  width={15}
+                  height={15}
+                  onClick={() => setTasksVisible(!tasksVisible)}
+                />
+              )}
+            </div>
+          </div>
+          <div
+            className="
+           w-[700px]
+            flex justify-between px-5 items-center 
+            "
+          >
+            <p>Author</p>
+            <p>Tasks To do </p>
+            <p>Start Time</p>
+          </div>
         </div>
+        {tasksVisible && (
+          <div className="ml-[20px]">
+            {users &&
+              users?.map((user: User, index: number) => {
+                return (
+                  <TasksBar
+                    title={user.firstName}
+                    description={user.lastName}
+                    time={user.startTime}
+                    key={index}
+                    onDelete={() => handleDeleteUser(index)}
+                    onDone={() => handleDone(index)}
+                    done={user.done}
+                    unDone={() => handleUnDone(index)}
+                  />
+                );
+              })}
+          </div>
+        )}
 
         {modalVisible && (
           <Modal

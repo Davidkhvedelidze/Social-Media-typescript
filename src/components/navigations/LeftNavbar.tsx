@@ -43,7 +43,7 @@ function LeftNavbar() {
   };
 
   return (
-    <div className="bg-[#363740] w-[255px] h-[801px] ">
+    <div className="bg-[#363740] w-[255px] h-[100%] ">
       <div className=" w-[255px] h-[124px] flex items-center justify-center  ">
         <h1
           className="font-bold text-white text-3xl p-10 cursor-pointer"
